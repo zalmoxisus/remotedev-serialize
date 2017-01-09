@@ -1,0 +1,23 @@
+{
+  "env": {
+    "mocha": true,
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "quotes": [ 1, "single" ],
+    "comma-style": [ 2, "last" ],
+    "eol-last": 0,
+    "no-unused-vars": 0,
+    "no-console": 0,
+    "func-names": 0,
+    "prefer-const": 0,
+    "prefer-arrow-callback": 0,
+    "comma-dangle": 0,
+    "id-length": 0,
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "default-case": 0,
+    "no-param-reassign": 0,
+    "no-underscore-dangle": 0
+  }
+}

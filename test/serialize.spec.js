@@ -33,3 +33,23 @@ describe('Parse', function () {
     });
   });
 });
+
+describe('Record', function () {
+  var ABRecord = Immutable.Record({ a:1, b:2 });
+  var myRecord = new ABRecord({ b:3 });
+  
+  var serialize = Serialize(Immutable, [ABRecord]);
+  var stringify = serialize.stringify;
+  var parse = serialize.parse;
+  var stringifiedRecord;
+
+  it('stringify', function() {
+    stringifiedRecord = stringify(myRecord);
+    expect(stringifiedRecord).toMatchSnapshot();
+  });
+
+  it('parse', function() {
+    stringifiedRecord = stringify(myRecord);
+    expect(parse(stringifiedRecord)).toEqual(myRecord);
+  });
+});

@@ -12,10 +12,22 @@ function extract(data, type) {
   };
 }
 
-module.exports = function serialize(Immutable) {
+function refer(data, type, isArray, refs) {
+  var r = mark(data, type, isArray);
+  for (var i = 0; i < refs.length; i++) {
+    var ref = refs[i];
+    if (typeof ref === 'function' && data instanceof ref) {
+      r.__remotedevRef__ = i;
+      return r;
+    }
+  }
+  return r;
+}
+
+module.exports = function serialize(Immutable, refs) {
   return {
     replacer: function(key, value) {
-      if (value instanceof Immutable.Record) return mark(value, 'ImmutableRecord');
+      if (value instanceof Immutable.Record) return refer(value, 'ImmutableRecord', false, refs);
       if (value instanceof Immutable.Range) return extract(value, 'ImmutableRange');
       if (value instanceof Immutable.Repeat) return extract(value, 'ImmutableRepeat');
       if (Immutable.OrderedMap.isOrderedMap(value)) return mark(value, 'ImmutableOrderedMap');
@@ -41,7 +53,9 @@ module.exports = function serialize(Immutable) {
           case 'ImmutableOrderedSet': return Immutable.OrderedSet(data);
           case 'ImmutableSeq': return Immutable.Seq(data);
           case 'ImmutableStack': return Immutable.Stack(data);
-          default: return Immutable.fromJS(data);
+          case 'ImmutableRecord':
+            return (refs && refs[value.__remotedevRef__] || Immutable.Map)(data);
+          default: return data;
         }
       }
       return value;

@@ -1,7 +1,7 @@
 {
-  "name": "serialize-immutable",
+  "name": "remotedev-serialize",
   "version": "1.0.0-alpha-1",
-  "description": "Serialize ImmutableJS data.",
+  "description": "Serialize unserializable data and parse it back.",
   "main": "index.js",
   "scripts": {
     "lint": "eslint src test",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zalmoxisus/serialize-immutable.git"
+    "url": "https://github.com/zalmoxisus/remotedev-serialize.git"
   },
   "keywords": [
     "redux",
@@ -19,9 +19,9 @@
   "author": "Mihail Diordiev <zalmoxisus@gmail.com> (https://github.com/zalmoxisus)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zalmoxisus/serialize-immutable/issues"
+    "url": "https://github.com/zalmoxisus/remotedev-serialize/issues"
   },
-  "homepage": "https://github.com/zalmoxisus/serialize-immutable",
+  "homepage": "https://github.com/zalmoxisus/remotedev-serialize",
   "devDependencies": {
     "eslint": "^2.13.1",
     "immutable": "^3.0.0",

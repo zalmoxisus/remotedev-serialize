@@ -1,14 +1,14 @@
 function mark(data, type, isArray) {
   return {
     data: isArray ? data.toArray() : data.toObject(),
-    __remotedevType__: type
+    __serializedType__: type
   };
 }
 
 function extract(data, type) {
   return {
     data: Object.assign({}, data),
-    __remotedevType__: type
+    __serializedType__: type
   };
 }
 
@@ -17,7 +17,7 @@ function refer(data, type, isArray, refs) {
   for (var i = 0; i < refs.length; i++) {
     var ref = refs[i];
     if (typeof ref === 'function' && data instanceof ref) {
-      r.__remotedevRef__ = i;
+      r.__serializedRef__ = i;
       return r;
     }
   }
@@ -41,9 +41,9 @@ module.exports = function serialize(Immutable, refs) {
     },
 
     reviver: function(key, value) {
-      if (typeof value === 'object' && value !== null && '__remotedevType__'  in value) {
+      if (typeof value === 'object' && value !== null && '__serializedType__'  in value) {
         var data = value.data;
-        switch (value.__remotedevType__) {
+        switch (value.__serializedType__) {
           case 'ImmutableMap': return Immutable.Map(data);
           case 'ImmutableOrderedMap': return Immutable.OrderedMap(data);
           case 'ImmutableList': return Immutable.List(data);
@@ -54,7 +54,7 @@ module.exports = function serialize(Immutable, refs) {
           case 'ImmutableSeq': return Immutable.Seq(data);
           case 'ImmutableStack': return Immutable.Stack(data);
           case 'ImmutableRecord':
-            return (refs && refs[value.__remotedevRef__] || Immutable.Map)(data);
+            return (refs && refs[value.__serializedRef__] || Immutable.Map)(data);
           default: return data;
         }
       }

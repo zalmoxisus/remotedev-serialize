@@ -1,19 +1,19 @@
-exports[`Record stringify 1`] = `"{\"data\":{\"a\":1,\"b\":3},\"__remotedevType__\":\"ImmutableRecord\",\"__remotedevRef__\":0}"`;
+exports[`Record stringify 1`] = `"{\"data\":{\"a\":1,\"b\":3},\"__serializedType__\":\"ImmutableRecord\",\"__serializedRef__\":0}"`;
 
-exports[`Stringify list 1`] = `"{\"data\":[1,2,3,4,5,6,7,8,9,10],\"__remotedevType__\":\"ImmutableList\"}"`;
+exports[`Stringify list 1`] = `"{\"data\":[1,2,3,4,5,6,7,8,9,10],\"__serializedType__\":\"ImmutableList\"}"`;
 
-exports[`Stringify map 1`] = `"{\"data\":{\"a\":1,\"b\":2,\"c\":3,\"d\":4},\"__remotedevType__\":\"ImmutableMap\"}"`;
+exports[`Stringify map 1`] = `"{\"data\":{\"a\":1,\"b\":2,\"c\":3,\"d\":4},\"__serializedType__\":\"ImmutableMap\"}"`;
 
-exports[`Stringify orderedMap 1`] = `"{\"data\":{\"a\":1,\"b\":2,\"c\":3,\"d\":4},\"__remotedevType__\":\"ImmutableOrderedMap\"}"`;
+exports[`Stringify orderedMap 1`] = `"{\"data\":{\"a\":1,\"b\":2,\"c\":3,\"d\":4},\"__serializedType__\":\"ImmutableOrderedMap\"}"`;
 
-exports[`Stringify orderedSet 1`] = `"{\"data\":[10,9,8,7,6,5,4,3,2,1],\"__remotedevType__\":\"ImmutableOrderedSet\"}"`;
+exports[`Stringify orderedSet 1`] = `"{\"data\":[10,9,8,7,6,5,4,3,2,1],\"__serializedType__\":\"ImmutableOrderedSet\"}"`;
 
-exports[`Stringify range 1`] = `"{\"data\":{\"_start\":0,\"_end\":7,\"_step\":1,\"size\":7},\"__remotedevType__\":\"ImmutableRange\"}"`;
+exports[`Stringify range 1`] = `"{\"data\":{\"_start\":0,\"_end\":7,\"_step\":1,\"size\":7},\"__serializedType__\":\"ImmutableRange\"}"`;
 
-exports[`Stringify repeat 1`] = `"{\"data\":{\"_value\":\"hi\",\"size\":100},\"__remotedevType__\":\"ImmutableRepeat\"}"`;
+exports[`Stringify repeat 1`] = `"{\"data\":{\"_value\":\"hi\",\"size\":100},\"__serializedType__\":\"ImmutableRepeat\"}"`;
 
-exports[`Stringify seq 1`] = `"{\"data\":[1,2,3,4,5,6,7,8],\"__remotedevType__\":\"ImmutableSeq\"}"`;
+exports[`Stringify seq 1`] = `"{\"data\":[1,2,3,4,5,6,7,8],\"__serializedType__\":\"ImmutableSeq\"}"`;
 
-exports[`Stringify set 1`] = `"{\"data\":[1,2,3,4,5,6,7,8,9,10],\"__remotedevType__\":\"ImmutableSet\"}"`;
+exports[`Stringify set 1`] = `"{\"data\":[1,2,3,4,5,6,7,8,9,10],\"__serializedType__\":\"ImmutableSet\"}"`;
 
-exports[`Stringify stack 1`] = `"{\"data\":[\"a\",\"b\",\"c\"],\"__remotedevType__\":\"ImmutableStack\"}"`;
+exports[`Stringify stack 1`] = `"{\"data\":[\"a\",\"b\",\"c\"],\"__serializedType__\":\"ImmutableStack\"}"`;

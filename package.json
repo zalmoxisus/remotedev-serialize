@@ -24,10 +24,10 @@
   "homepage": "https://github.com/zalmoxisus/serialize-immutable",
   "devDependencies": {
     "eslint": "^2.13.1",
+    "immutable": "^3.0.0",
     "jest": "^17.0.3"
   },
   "dependencies": {
-    "immutable": "^3.0.0",
     "jsan": "^3.1.0"
   }
 }

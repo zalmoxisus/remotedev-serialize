@@ -1,5 +1,6 @@
 var Immutable = require('immutable');
-var serialize = require('../');
+var Serialize = require('../');
+var serialize = Serialize(Immutable);
 var stringify = serialize.stringify;
 var parse = serialize.parse;
 

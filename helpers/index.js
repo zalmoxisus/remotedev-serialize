@@ -14,6 +14,7 @@ function extract(data, type) {
 
 function refer(data, type, isArray, refs) {
   var r = mark(data, type, isArray);
+  if (!refs) return r;
   for (var i = 0; i < refs.length; i++) {
     var ref = refs[i];
     if (typeof ref === 'function' && data instanceof ref) {

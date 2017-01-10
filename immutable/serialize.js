@@ -1,42 +1,21 @@
-function mark(data, type, isArray) {
-  return {
-    data: isArray ? data.toArray() : data.toObject(),
-    __serializedType__: type
-  };
-}
-
-function extract(data, type) {
-  return {
-    data: Object.assign({}, data),
-    __serializedType__: type
-  };
-}
-
-function refer(data, type, isArray, refs) {
-  var r = mark(data, type, isArray);
-  for (var i = 0; i < refs.length; i++) {
-    var ref = refs[i];
-    if (typeof ref === 'function' && data instanceof ref) {
-      r.__serializedRef__ = i;
-      return r;
-    }
-  }
-  return r;
-}
+var helpers = require('../helpers');
+var mark = helpers.mark;
+var extract = helpers.extract;
+var refer = helpers.refer;
 
 module.exports = function serialize(Immutable, refs) {
   return {
     replacer: function(key, value) {
-      if (value instanceof Immutable.Record) return refer(value, 'ImmutableRecord', false, refs);
+      if (value instanceof Immutable.Record) return refer(value, 'ImmutableRecord', 'toObject', refs);
       if (value instanceof Immutable.Range) return extract(value, 'ImmutableRange');
       if (value instanceof Immutable.Repeat) return extract(value, 'ImmutableRepeat');
-      if (Immutable.OrderedMap.isOrderedMap(value)) return mark(value, 'ImmutableOrderedMap');
-      if (Immutable.Map.isMap(value)) return mark(value, 'ImmutableMap');
-      if (Immutable.List.isList(value)) return mark(value, 'ImmutableList', true);
-      if (Immutable.OrderedSet.isOrderedSet(value)) return mark(value, 'ImmutableOrderedSet', true);
-      if (Immutable.Set.isSet(value)) return mark(value, 'ImmutableSet', true);
-      if (Immutable.Seq.isSeq(value)) return mark(value, 'ImmutableSeq', true);
-      if (Immutable.Stack.isStack(value)) return mark(value, 'ImmutableStack', true);
+      if (Immutable.OrderedMap.isOrderedMap(value)) return mark(value, 'ImmutableOrderedMap', 'toObject');
+      if (Immutable.Map.isMap(value)) return mark(value, 'ImmutableMap', 'toObject');
+      if (Immutable.List.isList(value)) return mark(value, 'ImmutableList', 'toArray');
+      if (Immutable.OrderedSet.isOrderedSet(value)) return mark(value, 'ImmutableOrderedSet', 'toArray');
+      if (Immutable.Set.isSet(value)) return mark(value, 'ImmutableSet', 'toArray');
+      if (Immutable.Seq.isSeq(value)) return mark(value, 'ImmutableSeq', 'toArray');
+      if (Immutable.Stack.isStack(value)) return mark(value, 'ImmutableStack', 'toArray');
       return value;
     },
 

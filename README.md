@@ -4,5 +4,5 @@ Serialize ImmutableJS data
 ### Installation
 
 ```
-npm install --save serialize-immutable
+npm install --save remotedev-serialize
 ```

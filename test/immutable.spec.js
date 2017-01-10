@@ -50,8 +50,29 @@ describe('Immutable', function () {
     });
   
     it('parse', function() {
-      stringifiedRecord = stringify(myRecord);
       expect(parse(stringifiedRecord)).toEqual(myRecord);
+    });
+  });
+
+  describe('Nested', function () {
+    var ABRecord = Immutable.Record({
+      map: Immutable.OrderedMap({ seq: data.seq, stack: data.stack }),
+      repeat: data.repeat
+    });
+    var nestedData = Immutable.Set(ABRecord(), data.orderedSet, data.range);
+
+    var serialize = Serialize(Immutable, [ABRecord]);
+    var stringify = serialize.stringify;
+    var parse = serialize.parse;
+    var stringifiedNested;
+
+    it('stringify', function() {
+      stringifiedNested = stringify(nestedData);
+      expect(stringifiedNested).toMatchSnapshot();
+    });
+
+    it('parse', function() {
+      expect(parse(stringifiedNested)).toEqual(nestedData);
     });
   });
 });

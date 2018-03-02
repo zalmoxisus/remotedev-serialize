@@ -33,7 +33,9 @@ module.exports = function serialize(Immutable, refs) {
           case 'ImmutableSeq': return Immutable.Seq(data);
           case 'ImmutableStack': return Immutable.Stack(data);
           case 'ImmutableRecord':
-            return (refs && refs[value.__serializedRef__] || Immutable.Map)(data);
+            return refs && refs[value.__serializedRef__]
+              ? new refs[value.__serializedRef__](data)
+              : Immutable.Map(data);
           default: return data;
         }
       }

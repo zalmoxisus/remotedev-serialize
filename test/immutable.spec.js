@@ -6,7 +6,7 @@ var parse = serialize.parse;
 
 var data = {
   map: Immutable.Map({ a: 1, b: 2, c: 3, d: 4 }),
-  orderedMap: Immutable.OrderedMap({ a: 1, b: 2, c: 3, d: 4 }),
+  orderedMap: Immutable.OrderedMap({ b: 2, a: 1, c: 3, d: 4 }),
   list: Immutable.List([1,2,3,4,5,6,7,8,9,10]),
   range: Immutable.Range(0,7),
   repeat: Immutable.Repeat('hi', 100),

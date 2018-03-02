@@ -1032,7 +1032,7 @@ ignore@^3.1.2:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.2.0.tgz#8d88f03c3002a0ac52114db25d2c673b0bf1e435"
 
-immutable@^3.8.1:
+immutable@^3.0.0:
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
 
@@ -1495,9 +1495,9 @@ js-yaml@3.x, js-yaml@^3.5.1, js-yaml@^3.7.0:
     argparse "^1.0.7"
     esprima "^2.6.0"
 
-jsan@^3.1.0:
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/jsan/-/jsan-3.1.5.tgz#8144b968ace7db092914a3639e9768181d686f61"
+jsan@^3.1.9:
+  version "3.1.9"
+  resolved "https://registry.yarnpkg.com/jsan/-/jsan-3.1.9.tgz#2705676c1058f0a7d9ac266ad036a5769cfa7c96"
 
 jsbn@~0.1.0:
   version "0.1.0"

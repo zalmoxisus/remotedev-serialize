@@ -9,8 +9,8 @@ module.exports = function serialize(Immutable, refs) {
       if (value instanceof Immutable.Record) return refer(value, 'ImmutableRecord', 'toObject', refs);
       if (value instanceof Immutable.Range) return extract(value, 'ImmutableRange');
       if (value instanceof Immutable.Repeat) return extract(value, 'ImmutableRepeat');
-      if (Immutable.OrderedMap.isOrderedMap(value)) return mark(value, 'ImmutableOrderedMap', 'toObject');
-      if (Immutable.Map.isMap(value)) return mark(value, 'ImmutableMap', 'toObject');
+      if (Immutable.OrderedMap.isOrderedMap(value)) return mark(value.entrySeq().toArray(), 'ImmutableOrderedMap');
+      if (Immutable.Map.isMap(value)) return mark(value.entrySeq().toArray(), 'ImmutableMap');
       if (Immutable.List.isList(value)) return mark(value, 'ImmutableList', 'toArray');
       if (Immutable.OrderedSet.isOrderedSet(value)) return mark(value, 'ImmutableOrderedSet', 'toArray');
       if (Immutable.Set.isSet(value)) return mark(value, 'ImmutableSet', 'toArray');

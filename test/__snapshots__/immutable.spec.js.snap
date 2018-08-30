@@ -1,12 +1,16 @@
-exports[`Immutable Nested stringify 1`] = `"{\"data\":[[\"map\",{\"data\":{\"seq\":{\"data\":[1,2,3,4,5,6,7,8],\"__serializedType__\":\"ImmutableSeq\"},\"stack\":{\"data\":[\"a\",\"b\",\"c\"],\"__serializedType__\":\"ImmutableStack\"}},\"__serializedType__\":\"ImmutableOrderedMap\"}],[\"repeat\",{\"data\":{\"_value\":\"hi\",\"size\":100},\"__serializedType__\":\"ImmutableRepeat\"}]],\"__serializedType__\":\"ImmutableSet\"}"`;
+exports[`Immutable Nested stringify 1`] = `"{\"data\":[[\"map\",{\"data\":[[\"seq\",{\"data\":[1,2,3,4,5,6,7,8],\"__serializedType__\":\"ImmutableSeq\"}],[\"stack\",{\"data\":[\"a\",\"b\",\"c\"],\"__serializedType__\":\"ImmutableStack\"}]],\"__serializedType__\":\"ImmutableOrderedMap\"}],[\"numeric_map\",{\"data\":[[1,{\"data\":[1,2,3,4,5,6,7,8],\"__serializedType__\":\"ImmutableSeq\"}],[2,{\"data\":[\"a\",\"b\",\"c\"],\"__serializedType__\":\"ImmutableStack\"}]],\"__serializedType__\":\"ImmutableMap\"}],[\"repeat\",{\"data\":{\"_value\":\"hi\",\"size\":100},\"__serializedType__\":\"ImmutableRepeat\"}]],\"__serializedType__\":\"ImmutableSet\"}"`;
 
 exports[`Immutable Record stringify 1`] = `"{\"data\":{\"a\":1,\"b\":3},\"__serializedType__\":\"ImmutableRecord\",\"__serializedRef__\":0}"`;
 
 exports[`Immutable Stringify list 1`] = `"{\"data\":[1,2,3,4,5,6,7,8,9,10],\"__serializedType__\":\"ImmutableList\"}"`;
 
-exports[`Immutable Stringify map 1`] = `"{\"data\":{\"a\":1,\"b\":2,\"c\":3,\"d\":4},\"__serializedType__\":\"ImmutableMap\"}"`;
+exports[`Immutable Stringify map 1`] = `"{\"data\":[[\"a\",1],[\"b\",2],[\"c\",3],[\"d\",4]],\"__serializedType__\":\"ImmutableMap\"}"`;
 
-exports[`Immutable Stringify orderedMap 1`] = `"{\"data\":{\"b\":2,\"a\":1,\"c\":3,\"d\":4},\"__serializedType__\":\"ImmutableOrderedMap\"}"`;
+exports[`Immutable Stringify numeric keys OrderedMap 1`] = `"{\"data\":[[1,\"one\"],[2,\"two\"],[3,\"three\"]],\"__serializedType__\":\"ImmutableOrderedMap\"}"`;
+
+exports[`Immutable Stringify numeric keys map 1`] = `"{\"data\":[[1,\"one\"],[2,\"two\"],[3,\"three\"]],\"__serializedType__\":\"ImmutableMap\"}"`;
+
+exports[`Immutable Stringify orderedMap 1`] = `"{\"data\":[[\"b\",2],[\"a\",1],[\"c\",3],[\"d\",4]],\"__serializedType__\":\"ImmutableOrderedMap\"}"`;
 
 exports[`Immutable Stringify orderedSet 1`] = `"{\"data\":[10,9,8,7,6,5,4,3,2,1],\"__serializedType__\":\"ImmutableOrderedSet\"}"`;
 

@@ -1,6 +1,6 @@
 {
   "name": "remotedev-serialize",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Serialize unserializable data and parse it back.",
   "main": "index.js",
   "scripts": {
@@ -28,6 +28,6 @@
     "jest": "^17.0.3"
   },
   "dependencies": {
-    "jsan": "^3.1.9"
+    "jsan": "^3.1.11"
   }
 }

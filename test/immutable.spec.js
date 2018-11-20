@@ -6,9 +6,7 @@ var parse = serialize.parse;
 
 var data = {
   map: Immutable.Map({ a: 1, b: 2, c: 3, d: 4 }),
-  'numeric keys map': Immutable.Map([ [ 1, 'one'], [ 2, 'two' ], [ 3, 'three' ] ]),
   orderedMap: Immutable.OrderedMap({ b: 2, a: 1, c: 3, d: 4 }),
-  'numeric keys OrderedMap': Immutable.OrderedMap([ [ 1, 'one'], [ 2, 'two' ], [ 3, 'three' ] ]),
   list: Immutable.List([1,2,3,4,5,6,7,8,9,10]),
   range: Immutable.Range(0,7),
   repeat: Immutable.Repeat('hi', 100),
@@ -59,7 +57,6 @@ describe('Immutable', function () {
   describe('Nested', function () {
     var ABRecord = Immutable.Record({
       map: Immutable.OrderedMap({ seq: data.seq, stack: data.stack }),
-      numeric_map: Immutable.Map([ [ 1, data.seq ], [ 2, data.stack ] ]),
       repeat: data.repeat
     });
     var nestedData = Immutable.Set(ABRecord(), data.orderedSet, data.range);

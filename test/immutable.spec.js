@@ -75,4 +75,28 @@ describe('Immutable', function () {
       expect(parse(stringifiedNested)).toEqual(nestedData);
     });
   });
+  describe('With references', function() {
+    it('serializes and deserializes', function() {
+      var sharedValue = [];
+      var record = Immutable.Record({
+        prop: sharedValue
+      });
+
+      var refs = [record];
+
+      var obj = Immutable.Map({
+        fst: new record(),
+        scnd: new record()
+      });
+
+      var serialized = stringify(obj, Serialize(Immutable, refs).replacer, null, true);
+      var parsed = JSON.parse(serialized);
+
+      var fstProp = parsed.data.fst.data.prop;
+      var scndProp = parsed.data.scnd.data.prop;
+
+      expect(fstProp).toEqual(scndProp);
+      expect(Array.isArray(obj.get('fst').get('prop')));
+    });
+  });
 });

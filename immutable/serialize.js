@@ -2,6 +2,7 @@ var helpers = require('../helpers');
 var mark = helpers.mark;
 var extract = helpers.extract;
 var refer = helpers.refer;
+var options= require('../constants/options');
 
 module.exports = function serialize(Immutable, refs) {
   return {
@@ -40,6 +41,7 @@ module.exports = function serialize(Immutable, refs) {
         }
       }
       return value;
-    }
+    },
+    options: options
   }   
 };

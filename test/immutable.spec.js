@@ -99,4 +99,38 @@ describe('Immutable', function () {
       expect(Array.isArray(obj.get('fst').get('prop')));
     });
   });
+
+  describe('Custom replacer and reviver functions', function() {
+    var customOneRepresentation = 'one';
+
+    function customReplacer(key, value, defaultReplacer) {
+      if (value === 1) {
+        return { data: customOneRepresentation, __serializedType__: 'number' };
+      }
+      return defaultReplacer(key, value);
+    }
+
+    function customReviver(key, value, defaultReviver) {
+      if (typeof value === 'object'
+      && value.__serializedType__ === 'number'
+      && value.data === customOneRepresentation) {
+        return 1;
+      }
+      return defaultReviver(key, value);
+    }
+
+    var serializeCustom = Serialize(Immutable, null, customReplacer, customReviver);
+
+    Object.keys(data).forEach(function(key) {
+      var stringified = serializeCustom.stringify(data[key]);
+      it(key, function() {
+        var deserialized = serializeCustom.parse(stringified);
+        expect(deserialized).toEqual(data[key]);
+        if (key === 'map' || key === 'orderedMap') {
+          deserializedDefault = parse(stringified);
+          expect(deserializedDefault.get('a')).toEqual(customOneRepresentation);
+        }
+      });
+    });
+  })
 });

@@ -99,8 +99,8 @@ console.log(Immutable.is(parsed, map));
 #### ES6
 
 - [x] Symbol
-- [ ] Map
-- [ ] Set
+- [x] Map
+- [x] Set
 - [ ] Typed Array
 
 ### License

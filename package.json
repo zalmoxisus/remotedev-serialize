@@ -3,6 +3,7 @@
   "version": "0.1.8",
   "description": "Serialize unserializable data and parse it back.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "lint": "eslint src test",
     "test": "jest --no-cache",

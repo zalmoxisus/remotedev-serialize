@@ -12,12 +12,19 @@ function extract(data, type) {
   };
 }
 
+function extractArray(data, type, transformMethod) {
+  return {
+    data: Array.from(transformMethod ? data[transformMethod]() : data),
+    __serializedType__: type
+  };
+}
+
 function refer(data, type, isArray, refs) {
   var r = mark(data, type, isArray);
   if (!refs) return r;
   for (var i = 0; i < refs.length; i++) {
     var ref = refs[i];
-    if (typeof ref === 'function' && data instanceof ref) {
+    if (typeof ref === "function" && data instanceof ref) {
       r.__serializedRef__ = i;
       return r;
     }
@@ -28,5 +35,6 @@ function refer(data, type, isArray, refs) {
 module.exports = {
   mark: mark,
   extract: extract,
+  extractArray: extractArray,
   refer: refer
 };
